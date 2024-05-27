@@ -1,4 +1,5 @@
-// const User = require('./User');
+const User = require('./User');
+const BlogPost = require('./BlogPost')
 // const Gallery = require('./Gallery');
 // const Painting = require('./Painting');
 
@@ -10,4 +11,4 @@
 //   foreignKey: 'gallery_id',
 // });
 
-// module.exports = { User, Gallery, Painting };
+module.exports = { User, BlogPost };

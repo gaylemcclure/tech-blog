@@ -1,0 +1,14 @@
+[
+  {
+    "title": "This is my blog post",
+    "text": "Check out my cool Tech Blog, that shows you a list of all the blog posts here on the homepage."
+  },
+  {
+    "title": "Handlebar JS",
+    "text": "This templating language is a way of simplifying the process of creating dynamic HTML templates."
+  },
+  {
+    "title": "Express",
+    "text": "A minimal and flexible web application framework."
+  }
+]
