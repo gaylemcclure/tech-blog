@@ -1,0 +1,46 @@
+:root {
+  --main-black: #071013;
+  --main-blue: #75abbc;
+  --secondary-blue: #1b89bc;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--main-blue);
+}
+
+
+/* -------HEADER-------------*/
+header {
+  background-color: var(--main-black);
+  padding: 1.5rem 3rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav a {
+  color: var(--main-blue);
+  font-size: 1.25rem;
+  padding-right: 3rem;
+}
+
+.logo-container {
+  background-color: var(--main-blue);
+  display: inline-block;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  box-shadow: 5px 5px 2px 2px rgba(117,116,116,0.75);
+  margin-bottom: 1rem;
+  h1 {
+    color: var(--main-black);
+    font-size: 2rem;
+    font-weight: 800;
+  }
+}
