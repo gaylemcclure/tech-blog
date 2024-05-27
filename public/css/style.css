@@ -15,7 +15,7 @@ body {
 
 
 /* -------HEADER-------------*/
-header {
+header.main {
   background-color: var(--main-black);
   padding: 1.5rem 3rem;
 }
@@ -43,4 +43,75 @@ nav a {
     font-size: 2rem;
     font-weight: 800;
   }
+}
+
+
+/*----------HOMEPAGE----------*/
+.post {
+  margin: 2rem;
+  border: 2px solid var(--main-black);
+  border-radius: 2px;
+}
+
+.blog-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.blog-details {
+  margin-left: auto;
+}
+
+.blog-header {
+  background-color: var(--main-black);
+  padding: 0.75rem;
+  h2, p {
+    color: var(--main-blue);
+  }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  p {
+    font-size: 0.75rem;
+    align-content: center;
+  }
+}
+
+.blog-text {
+  padding: 1rem;
+  p {
+    color: var(--main-black);
+  }
+}
+
+
+/*----------LOGIN/SIGNUP----------*/
+.form {
+  padding: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  label {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  input {
+    height: 2.5rem;
+    border-radius: 2px;
+    border: none;
+  }
+}
+
+.login-button {
+  padding: 1rem;
+  background-color: #5f5f5f;
+  color: var(--main-blue);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
