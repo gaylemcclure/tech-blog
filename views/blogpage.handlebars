@@ -1,0 +1,40 @@
+{{!-- Main blog post --}}
+<section class="post">
+  <a href="/blog/{{blog.id}}">
+    <header class="blog-header">
+      <h2>{{blog.title}}</h2>
+      <p class="blog-details">Posted by
+        {{blog.user.username}}
+        on
+        {{format_date blog.created_date}}</p>
+    </header>
+  </a>
+  <div class="blog-text"><p>{{blog.text}}</p></div>
+</section>
+
+{{!-- New comment section --}}
+<section class="post">
+  <header class="blog-header">
+  </header>
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea class="form-input" id="comment"></textarea>
+      </div>
+      <div class="form-group">
+        <button id="submit-comment" class="login-button" value={{blog.id}} type="submit">Submit</button>
+      </div>
+  </form>
+
+
+
+
+</section>
+
+<script src="/js/newComment.js"></script>
+
+{{!-- Show existing comments --}}
+{{#each comments as |comment|}}
+{{> comment-details}}
+{{/each}}
+

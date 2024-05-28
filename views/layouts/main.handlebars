@@ -17,14 +17,14 @@
   </head>
 
   <body>
-    <div class="flex-column justify-space-around">
+    <div>
       <header class="main">
         <nav>
           <a href="/">Home</a>
           <!-- Conditionally render login or logout text -->
           {{#if logged_in}}
           <a href="/dashboard">Dashboard</a>
-            <button class="no-button" id="logout">Logout</button>
+            <button id="logout" class="logout-button">Logout</button>
           {{else}}
           <a href="/login">Dashboard</a>
             <a href="/login">Login</a>
@@ -40,9 +40,6 @@
         <!-- Render the sub layout -->
         {{{body}}}
       </main>
-      <footer>
-
-      </footer>
     </div>
 
     <!-- Render script for logged in users only -->

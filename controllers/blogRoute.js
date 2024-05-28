@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const { User, Blog } = require("../models");
 
-
-// GET homepage route - show all blog posts
+// GET blog route - show all blog posts (same as homepage)
 router.get("/", async (req, res) => {
   try {
     const blogDB = await Blog.findAll({
@@ -26,28 +25,32 @@ router.get("/", async (req, res) => {
   }
 });
 
-//GET login route
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
+//GET individual blog posts by ID
+router.get("/:id", async (req, res) => {
+  try {
+    const blogDb = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["id", "username"],
+        },
+      ],
+    });
 
-  res.render("login", {
-    title: "The Tech Blog",
-  });
+
+    const blog = blogDb.get({ plain: true });
+    
+    res.render("blogpage", {
+      title: "The Tech Blog",
+      logged_in: req.session.logged_in,
+      blog_id: blog.id,
+      blog,
+    });
+  } catch (err) {
+    console.error(err);
+  }
 });
 
-//GET signup route
-router.get("/signup", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
 
-  res.render("signup", {
-    title: "The Tech Blog",
-  });
-});
 
 module.exports = router;
