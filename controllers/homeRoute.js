@@ -13,8 +13,9 @@ router.get("/", async (req, res) => {
       ],
     });
 
+    
     const posts = blogDB.map((post) => post.get({ plain: true }));
-
+    console.log(posts)
     res.render("homepage", {
       title: "The Tech Blog",
       logged_in: req.session.logged_in,

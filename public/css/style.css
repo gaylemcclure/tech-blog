@@ -153,7 +153,7 @@ button.logout-button {
 }
 
 
-/*----------LOGIN/SIGNUP----------*/
+/*----------COMMENTS----------*/
 
 .comment {
     margin: 1rem 3rem;
@@ -170,4 +170,31 @@ button.logout-button {
 
 .user-details {
   padding: 1rem 0 0 1rem;
+}
+
+
+/*----------DASHBOARD----------*/
+
+.no-posts {
+  padding: 2rem;
+  font-size: 1.5rem;
+  color: var(--main-black);
+  display: flex;
+  justify-content: center;
+}
+
+.post-button {
+  background-color: var(--main-black);
+  color: var(--main-blue);
+  font-size: 1.2rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 2px 2px 2px 0px rgba(49, 49, 49, 0.75);
+
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }
