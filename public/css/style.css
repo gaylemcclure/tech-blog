@@ -4,7 +4,7 @@
   --gray: #A9AcA9;
   --hover: #F6AE2D;
 }
-/* 071013 */
+
 
 html {
   font-size: 16px;
@@ -125,7 +125,6 @@ button.logout-button {
   }
 }
 
-
 /*----------LOGIN/SIGNUP----------*/
 .form {
   padding: 1rem;
@@ -151,4 +150,24 @@ button.logout-button {
 .login-button:hover {
   background-color: var(--hover);
   color: var(--main-black);
+}
+
+
+/*----------LOGIN/SIGNUP----------*/
+
+.comment {
+    margin: 1rem 3rem;
+    border: 2px solid var(--main-black);
+    border-radius: 2px;
+}
+
+.title {
+  margin: 1rem 3rem;
+  color: var(--main-black);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.user-details {
+  padding: 1rem 0 0 1rem;
 }

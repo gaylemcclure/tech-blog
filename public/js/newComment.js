@@ -17,7 +17,7 @@ const handleNewComment = async (e) => {
         if (response.ok) {
           // If successful, redirect the browser to the profile page
           // document.location.replace('/');
-          console.log("ok")
+          window.location.reload();
         } else {
           alert(`${response.statusText}: Invalid comment`);
         }

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Blog } = require("../models");
+const { User, Blog, Comment } = require("../models");
 
 // GET blog route - show all blog posts (same as homepage)
 router.get("/", async (req, res) => {
@@ -37,20 +37,32 @@ router.get("/:id", async (req, res) => {
       ],
     });
 
+    const commentsDb = await Comment.findAll({
+      where: {
+        blog_id: req.params.id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "username"],
+        }
+      ]
+    });
 
     const blog = blogDb.get({ plain: true });
-    
+    const comments = commentsDb.map((comment) => comment.get({ plain: true }));
+    console.log(comments)
+
     res.render("blogpage", {
       title: "The Tech Blog",
       logged_in: req.session.logged_in,
       blog_id: blog.id,
       blog,
+      comments
     });
   } catch (err) {
     console.error(err);
   }
 });
-
-
 
 module.exports = router;

@@ -5,7 +5,6 @@ const { Comment } = require('../../models');
 router.post('/',  (req, res) => {
   try {
 
-
    Comment.create({
         text: req.body.comment,
         user_id: req.session.user_id,
@@ -13,9 +12,6 @@ router.post('/',  (req, res) => {
     }).then((newComment) => {
         res.json(newComment)
     })
-
-
-    // res.status(200).json(comm)
 
   } catch (err) {
     res.status(400).json(err);
