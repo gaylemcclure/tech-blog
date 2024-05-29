@@ -26,15 +26,13 @@
       </div>
   </form>
 
-
-
-
 </section>
 
 <script src="/js/newComment.js"></script>
 
-<h4 class="title">Comments</h4>
+
 {{!-- Show existing comments --}}
+<h4 class="title">Comments</h4>
 {{#each comments as |comment|}}
 {{> comment-details}}
 {{/each}}

@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     const posts = blogDB.map((post) => post.get({ plain: true }));
 
     res.render("homepage", {
-      title: "The Tech Blog",
+      header_title: "The Tech Blog",
       logged_in: req.session.logged_in,
       posts,
     });
@@ -54,7 +54,7 @@ router.get("/:id", async (req, res) => {
     console.log(comments)
 
     res.render("blogpage", {
-      title: "The Tech Blog",
+      header_title: "The Tech Blog",
       logged_in: req.session.logged_in,
       blog_id: blog.id,
       blog,

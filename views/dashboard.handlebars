@@ -3,7 +3,7 @@
 {{#if posts_created}}
 
 {{#each posts as |blog|}}
-{{> blog-details}}
+{{> dashboard-details}}
 {{/each}}
 
 {{else}}
@@ -14,5 +14,5 @@
 {{/if}}
 
 <div class="button-container">
-    <a href="/dashboard/post"><button id="post-button" class="post-button" href="/post">+ New Post</button></a>
+    <a href="/dashboard/posts"><button id="post-button" class="post-button">+ New Post</button></a>
 </div>

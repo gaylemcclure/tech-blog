@@ -198,3 +198,7 @@ button.logout-button {
   display: flex;
   justify-content: center;
 }
+
+.space {
+  margin-bottom: 1rem;
+}
