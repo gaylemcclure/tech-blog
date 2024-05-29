@@ -1,13 +1,18 @@
+const updateButton = document.querySelector('#edit-post');
+const deleteButton = document.querySelector('#delete-post');
+
+
 const handleEditPost = async () => {
     const title = document.querySelector('#post-title').value;
     const content = document.querySelector("#post-content").value;
+    const blogId = Number(updateButton.value);
 
 
     if (title && content) {
         // Send a POST request to the API endpoint
-        const response =  await fetch('/api/:id/update', {
-          method: 'PATCH',
-          body: JSON.stringify({ title, content }),
+        const response =  await fetch(`/api/dashboard/${blogId}`, {
+          method: 'PUT',
+          body: JSON.stringify({ title, content, blogId }),
           headers: { 'Content-Type': 'application/json' },
         });
 
@@ -21,13 +26,21 @@ const handleEditPost = async () => {
 };
 
 const handleDeletePost = async () => {
-
+    const blogId = Number(deleteButton.value);
+    
+        const response = await fetch(`/api/dashboard/${blogId}`, {
+          method: 'DELETE',
+        });
+    
+        if (response.ok) {
+          document.location.replace('/dashboard');
+        } else {
+          alert('Failed to delete post');
+        }
 }
 
 //Update button
-const updateButton = document.querySelector('#edit-post');
 updateButton.addEventListener('click', handleEditPost);
 
 //Delete button
-const deleteButton = document.querySelector('#delete-post');
 deleteButton.addEventListener('click', handleDeletePost);

@@ -6,17 +6,15 @@
     <div class="blog-text">
     <div class="form-group">
       <label for="post-title">Title</label>
-      {{!-- <input class="form-input" type="text" id="post-title" value={{{title}}}/> --}}
       {{{title_input post.title}}}
     </div>
     <div class="form-group">
       <label for="post-content">Content</label>
-      {{!-- <textarea class="form-input" value={{posts.text}} id="post-content"></textarea> --}}
-            {{{content_input post.text}}}
+        {{{content_input post.text}}}
     </div>
     <div class="form-group">
-      <button class="login-button space" id="edit-post" type="submit">Update Post</button>
-      <button class="login-button" id="delete-post" type="submit">Delete</button>
+      <button class="login-button space" id="edit-post" value={{post.id}} type="submit">Update Post</button>
+      <button class="login-button" id="delete-post" value={{post.id}} type="submit">Delete</button>
 
     </div>
 

@@ -51,7 +51,7 @@ router.get("/:id", async (req, res) => {
 
     const blog = blogDb.get({ plain: true });
     const comments = commentsDb.map((comment) => comment.get({ plain: true }));
-    console.log(comments)
+
 
     res.render("blogpage", {
       header_title: "The Tech Blog",
