@@ -7,12 +7,13 @@ This is a fully functional blog site, with the ability to view posts, add commen
 [Click here](https://tech-blog-ptz0.onrender.com/) to visit the example website: 
 
 Screenshots
-![login](/public/images/login.png)
-![homepage](/public/images/homepage.png)
-![dashboard](/public/images/dashboard-list.png)
-![new post](/public/images/new-post.png)
-![comment](/public/images/comments.png)
-![edit post](/public/images/edit-post.png)
+
+<img src="./public/images/login.png" alt="login" width="600">
+<img src="./public/images/homepage.png" alt="homepage" width="600">
+<img src="./public/images/dashboard-list.png" alt="dashboard" width="600">
+<img src="./public/images/new-post.png" alt="new post" width="600">
+<img src="./public/images/comments.png" alt="comments" width="600">
+<img src="./public/images/edit-post.png" alt="edit post" width="600">
 
 
   ## TABLE OF CONTENTS
