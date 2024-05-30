@@ -1,4 +1,4 @@
-//JS to handle the user login
+//Function to handle the user login
 const handleLogin = async (event) => {
     event.preventDefault();
   
@@ -15,7 +15,7 @@ const handleLogin = async (event) => {
       });
   
       if (response.ok) {
-        // If successful, redirect the browser to the profile page
+        // If successful, redirect the browser to the home page
         document.location.replace('/');
       } else {
         alert(`${response.statusText}: Invalid username or password`);

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
 
-//Create a new post
+//POST request to create a new blog post
 router.post('/',  (req, res) => {
   try {
    Blog.create({

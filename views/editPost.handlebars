@@ -1,26 +1,32 @@
+{{! Edit post page }}
 <section class="post">
-    <header class="blog-header">
-      <h2>Edit Post</h2>
-    </header>
-    </a>
-    <div class="blog-text">
+  <header class="blog-header">
+    <h2>Edit Post</h2>
+  </header>
+  <div class="blog-text">
     <div class="form-group">
       <label for="post-title">Title</label>
       {{{title_input post.title}}}
     </div>
     <div class="form-group">
       <label for="post-content">Content</label>
-        {{{content_input post.text}}}
+      {{{content_input post.text}}}
     </div>
     <div class="form-group">
-      <button class="login-button space" id="edit-post" value={{post.id}} type="submit">Update Post</button>
-      <button class="login-button" id="delete-post" value={{post.id}} type="submit">Delete</button>
-
+      <button
+        class="login-button space"
+        id="edit-post"
+        value={{post.id}}
+        type="submit"
+      >Update Post</button>
+      <button
+        class="login-button"
+        id="delete-post"
+        value={{post.id}}
+        type="submit"
+      >Delete</button>
     </div>
-
-    </div>
-  
+  </div>
 </section>
-
 
 <script src="/js/editPost.js"></script>

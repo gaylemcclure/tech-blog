@@ -1,9 +1,8 @@
-
 const router = require('express').Router();
 const { Blog } = require('../../models');
 
+//PUT request to update a blog post
 router.put('/:id',  (req, res) => {
-  
       Blog.update({
         title: req.body.title,
         text: req.body.text
@@ -20,8 +19,8 @@ router.put('/:id',  (req, res) => {
   
   });
   
+  //DELETE request to remove a blog post
   router.delete('/:id', (req, res) => {
-  
     Blog.destroy({
       where: {
         id: req.params.id,

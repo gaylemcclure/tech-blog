@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
       ],
     });
     const posts = blogDB.map((post) => post.get({ plain: true }));
+    //Render the homepage
     res.render("homepage", {
       header_title: "The Tech Blog",
       logged_in: req.session.logged_in,
@@ -30,6 +31,7 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
+  //Render the login page
   res.render("login", {
     header_title: "The Tech Blog",
   });
@@ -41,6 +43,7 @@ router.get("/signup", (req, res) => {
     res.redirect("/");
     return;
   }
+  //Render the signup page
   res.render("signup", {
     header_title: "The Tech Blog",
   });

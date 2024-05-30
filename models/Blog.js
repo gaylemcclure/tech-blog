@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Blog extends Model {}
 
+//Create Blog model - reference user
 Blog.init(
   {
     id: {

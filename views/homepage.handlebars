@@ -1,15 +1,5 @@
-{{!-- Checks if logged in before viewing post --}}
-{{#if logged_in}}
-
 {{!-- Show the blog page and comments --}}
 {{#each posts as |Blog|}}
 {{> blog-details}}
 {{/each}}
 
-{{else}} 
-{{!-- redirect to the login page --}}
-{{#each posts as |Blog|}}
-{{> blog-details-nouser}}
-{{/each}}
-
-{{/if}}

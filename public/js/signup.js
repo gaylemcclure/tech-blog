@@ -2,6 +2,7 @@
 const handleSignup = async (event) => {
     event.preventDefault();
   
+    //Get the values from the inputs - trim whitespace
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   

@@ -2,10 +2,10 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+//POST request to create a new user via signup
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
-
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+//POST request for a saved user to login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { username: req.body.username } });
@@ -27,16 +28,17 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
+    //Password validation checks
+    const validPassword = userData.checkPassword(req.body.password);
 
-    // const validPassword = await userData.checkPassword(req.body.password);
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect username or password, please try again' });
+      return;
+    }
 
-    // if (!validPassword) {
-    //   res
-    //     .status(400)
-    //     .json({ message: 'Incorrect username or password, please try again' });
-    //   return;
-    // }
-
+    //Saving the session data on login
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -49,6 +51,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//POST request to logout and end the session
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

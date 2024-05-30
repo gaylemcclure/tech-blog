@@ -1,13 +1,15 @@
 const router = require("express").Router();
 const { User, Blog } = require("../models");
+const withAuth = require('../utils/auth');
 
-// GET Dashbooard route - show all blog posts related to the logged in user
-router.get("/", async (req, res) => {
+// GET Dashboard route - show all blog posts related to the logged in user
+router.get("/", withAuth, async (req, res) => {
   try {
     const blogDB = await Blog.findAll({
       where: {
         user_id: req.session.user_id,
       },
+      //Include the user - need username for blogpost
       include: [
         {
           model: User,
@@ -16,10 +18,13 @@ router.get("/", async (req, res) => {
     });
     const posts = blogDB.map((post) => post.get({ plain: true }));
     //Check if there are any existing posts by current user
+    //If no posts, it will show 'No Posts'
     let numberPosts = true;
     if (posts.length === 0) {
       numberPosts = false;
     }
+
+    //Render dashboard page
     res.render("dashboard", {
       header_title: " My Dashboard",
       logged_in: req.session.logged_in,
@@ -34,7 +39,8 @@ router.get("/", async (req, res) => {
 
 
 //GET route to page to create a new blog post
-router.get("/posts", (req, res) => {
+router.get("/posts", withAuth, (req, res) => {
+  //Render newPost page
   res.render("newPost", {
     header_title: " My Dashboard",
     logged_in: req.session.logged_in,
@@ -43,7 +49,7 @@ router.get("/posts", (req, res) => {
 
 
 //GET route to edit an individial post
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const blogDB = await Blog.findByPk(req.params.id, {
       include: [
@@ -54,6 +60,7 @@ router.get("/:id", async (req, res) => {
       ],
     });
     const post = blogDB.get({ plain: true });
+    //Render edit post page
     res.render("editPost", {
       header_title: " My Dashboard",
       logged_in: req.session.logged_in,

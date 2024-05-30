@@ -1,7 +1,8 @@
+//Button selector, and blog id
 const submitButton = document.querySelector('#submit-comment')
 const blogId = Number(submitButton.value);
 
-
+//Function to create a new comment
 const handleNewComment = async (e) => {
 
     const comment = document.querySelector('#comment').value;
@@ -12,11 +13,9 @@ const handleNewComment = async (e) => {
           body: JSON.stringify({ comment, blogId }),
           headers: { 'Content-Type': 'application/json' },
         });
-        console.log(response)
 
         if (response.ok) {
-          // If successful, redirect the browser to the profile page
-          // document.location.replace('/');
+          // If successful, refresh the page
           window.location.reload();
         } else {
           alert(`${response.statusText}: Invalid comment`);
@@ -25,6 +24,6 @@ const handleNewComment = async (e) => {
 }
 
 
-
+//Submit button event listener
 submitButton.addEventListener('click', handleNewComment);
 

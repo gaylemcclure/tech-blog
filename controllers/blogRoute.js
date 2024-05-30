@@ -1,34 +1,12 @@
 const router = require("express").Router();
 const { User, Blog, Comment } = require("../models");
-
-// GET blog route - show all blog posts (same as homepage)
-router.get("/", async (req, res) => {
-  try {
-    const blogDB = await Blog.findAll({
-      include: [
-        {
-          model: User,
-        },
-      ],
-    });
-
-    const posts = blogDB.map((post) => post.get({ plain: true }));
-
-    res.render("homepage", {
-      header_title: "The Tech Blog",
-      logged_in: req.session.logged_in,
-      posts,
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-});
+const withAuth = require('../utils/auth');
 
 //GET individual blog posts by ID
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const blogDb = await Blog.findByPk(req.params.id, {
+      //Include the user data - add username to blog
       include: [
         {
           model: User,
@@ -37,6 +15,7 @@ router.get("/:id", async (req, res) => {
       ],
     });
 
+    //GET all the comments where blog_id is same as route id
     const commentsDb = await Comment.findAll({
       where: {
         blog_id: req.params.id
@@ -49,10 +28,11 @@ router.get("/:id", async (req, res) => {
       ]
     });
 
+    //Update to plain object data
     const blog = blogDb.get({ plain: true });
     const comments = commentsDb.map((comment) => comment.get({ plain: true }));
 
-
+    //Render the blogpage - single post and comments
     res.render("blogpage", {
       header_title: "The Tech Blog",
       logged_in: req.session.logged_in,
