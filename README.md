@@ -4,9 +4,15 @@
   
   ## DESCRIPTION
 This is a fully functional blog site, with the ability to view posts, add comments on existing posts, add new posts, edit and delete posts. It also features user login, so comments and posts can only be created when the user is logged in.
-Video walkthrough:
-[![alt text](assets/insomnia1.png)](https://www.loom.com/share/ae637328365c43bc836597f92e8c63d9?sid=51d7ac87-c9e5-4e69-9804-05b03db4cce3)
-[![alt text](assets/insomnia2.png)](https://www.loom.com/share/58dcbb20bdea4747a92aee8980ae5b38?sid=161c986e-e55d-4acf-b207-3dc96dd58002)
+[Click here](https://tech-blog-ptz0.onrender.com/) to visit the example website: 
+
+Screenshots
+![login](/public/images/login.png)
+![homepage](/public/images/homepage.png)
+![dashboard](/public/images/dashboard-list.png)
+![new post](/public/images/new-post.png)
+![comment](/public/images/comments.png)
+![edit post](/public/images/edit-post.png)
 
 
   ## TABLE OF CONTENTS
@@ -27,30 +33,22 @@ To clone from Github, use GitBash
   ## USAGE
   Upon installation of the project, start the app using the terminal with the following commands:   
   ```npm i```
-  ```node ./seeds/index.js```
-  ```node server.js```
-Using insomnia, you are able to complete the following options:
+  ```npm run seed```
+  ```npm run dev```
 
-Category:
- - Find all
- - Find one
- - Update via id
- - Create new
- - Delete via id
+1. View the main homepage without being logged in
+2. Have to sign up or login to view the other pages
+3. Create a new user by signing up
+4. This will log you in as well
+5. Click on posts on the homepage to view all comments
+6. As a logged in user, you can add new comments, which show straight away
+7. My Dashboard link will show all posts you have created
+8. If there are none, then it will show 'no posts'
+9. Add a new post from here
+10. On create post page, enter the title and content of the post and click Create
+11. You will be taken back to your dashboard, and the new post will show the title only. 
+12. Click on the post title to see edit or delete options
 
-Tag:
- - Find all
- - Find one
- - Update via id
- - Create new
- - Delete via id
-
- Product:
- - Find all
- - Find one
- - Update via id
- - Create new
- - Delete via id
 
  
   
@@ -59,7 +57,7 @@ Tag:
   
   ## CONTRIBUTIONS
   Created by Gayle McClure   
-  Uses JavaScript, node.js, postgres db, express
+  Uses JavaScript, node.js, postgres db, express, sequelize, bcrypt, render
   
   
   ## QUESTIONS
