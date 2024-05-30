@@ -13,11 +13,11 @@ Blog.init(
       autoIncrement: true,
     },
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     text: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     created_date: {
         type: DataTypes.DATE,
